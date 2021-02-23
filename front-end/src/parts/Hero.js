@@ -10,7 +10,10 @@ import Button from "elements/Button";
 export default function Hero(props) {
 
     function showMostPicked() {
-        window.scrollTo()
+        window.scrollTo({
+            top: props.refMostPicked.current.offsetTop - 30,
+            behaviour: "smooth"
+        })
     }
 
     return (
@@ -25,8 +28,35 @@ export default function Hero(props) {
                 We provide what you need to enjoy your holiday with family. Time to make another memorable mmoments.
                 </p>
                 <Button className="btn px-5" hasShadow isPrimary onClick={showMostPicked}>
-
+                Show Me
                 </Button>
+                <div className="row mt-5">
+                    <div className="col-auto">
+                        <img width="36" height="36" src={IconTraveler} alt={`${props.data.travelers} Travelers`}></img>
+                        <h6 className="mt-3">
+                            {props.data.travelers} <span className="text-gray-500 font-weight-light">
+                                travelers
+                            </span>
+                        </h6>
+                    </div>
+                    <div className="col-auto">
+                        <img width="36" height="36" src={IconTreasure} alt={`${props.data.treasures} Treasures`}></img>
+                        <h6 className="mt-3">
+                            {props.data.treasures} <span className="text-gray-500 font-weight-light">
+                            treasures
+                            </span>
+                        </h6>
+                    </div>
+                    <div className="col-auto">
+                        <img width="36" height="36" src={IconCities} alt={`${props.data.cities} Cities`}></img>
+                        <h6 className="mt-3">
+                            {props.data.cities} <span className="text-gray-500 font-weight-light">
+                            cities
+                            </span>
+                        </h6>
+                    </div>
+                </div>
+
             </div>
             </div>
         </section>
