@@ -24,13 +24,13 @@ export default function Hero(props) {
                     Forget Busy Work, <br/>
                     Start Next Vacation
                 </h1>
-                <p className="nb-5 font-weight-light text-gray-500 w-75" style={{lineHeight:"170%"}}>
+                <p className="mb-4 font-weight-light text-gray-500 w-75" style={{lineHeight:"170%"}}>
                 We provide what you need to enjoy your holiday with family. Time to make another memorable mmoments.
                 </p>
                 <Button className="btn px-5" hasShadow isPrimary onClick={showMostPicked}>
-                Show Me
+                Show Me Now
                 </Button>
-                <div className="row mt-5">
+                <div className="row"style={{marginTop: 80}}>
                     <div className="col-auto" style={{marginRight: 35}}>
                         <img width="36" height="36" src={IconTraveler} alt={`${props.data.travelers} Travelers`}></img>
                         <h6 className="mt-3">
