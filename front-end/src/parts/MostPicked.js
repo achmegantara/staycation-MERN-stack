@@ -18,7 +18,7 @@ export default function MostPicked(props) {
                         <figure className="img-wrapper">
                             <img src={item.imageUrl} alt={item.name} className="img-cover"></img>
                         </figure>
-                        <div className="metwa-wrapper">
+                        <div className="meta-wrapper">
                             <Button type="link" className="streched-link d-block text-white" href={`/properties/${item._id}`}>
                                 <h5>{item.name}</h5>
                             </Button>
