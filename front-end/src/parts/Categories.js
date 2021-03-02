@@ -29,8 +29,8 @@ return data.map((category, index1) => {
                             <img src={item.imageUrl} alt={item.name} className="img-cover"></img>
                         </figure>
                         <div className="meta-wrapper">
-                            <Button href={`/properties/${item._id}`} className="stretched-link d-block text-gray-800">
-                                <h5 className="h4">
+                            <Button type="link" href={`/properties/${item._id}`} className="stretched-link d-block text-gray-800">
+                            <h5 className="h4">
                                     {item.name}
                                 </h5>
                             </Button>
