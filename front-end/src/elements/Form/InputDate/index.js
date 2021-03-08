@@ -32,17 +32,17 @@ export default function Date(props) {
     });
 
     const refDate = useRef(null);
-    const handleClickOutside = event => {
+    const handleClickOutside = (event) => {
         if(refDate && !refDate.current.contains(event.target)){
             setIsShowed(false);
         }
     };
 
-    const check = focus => {
+    const check = (focus) => {
         focus.indexOf(1) < 0 && setIsShowed(false);
     };
 
-    const displayDate = `${value.startDate} ? formatDate(value.startDate) : "")${value.endDate ? " - " + formatDate(value.endDate) : "" }`;
+    const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${value.endDate ? " - " + formatDate(value.endDate) : "" }`;
 
 
     return (
@@ -76,7 +76,7 @@ export default function Date(props) {
             )}
             </div>
         </div>
-    )
+    );
 }
 
 Date.propTypes = {
