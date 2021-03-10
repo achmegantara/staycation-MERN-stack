@@ -22,11 +22,12 @@ export default class BookingForm extends Component {
     updateData = e => {
         this.setState({
             // "..." <- untuk spread data
-            ...this.state, data: {
+            ...this.state, 
+            data: {
                 ...this.state.data, 
                 //target yang akan diubah : nilai target yang diubah
-                [e.target.name]: e.target.value
-            }
+                [e.target.name]: e.target.value,
+            },
         });
     };
 
@@ -39,29 +40,29 @@ export default class BookingForm extends Component {
         this.setState({
             data: {
                 ...this.state.data,
-                duration: countDuration
-            }
+                duration: countDuration,
+            },
         });
         }
 
-        if(prevState.data.date !== data.date) {
+        if(prevState.data.duration !== data.duration) {
             const startDate = new Date(data.date.startDate);
-            const endDate = new Date(startDate.getDate() + +data.duration - 1);
+            const endDate = new Date(
+                startDate.setDate(startDate.getDate() + +data.duration - 1)
+            );
             this.setState({
                 ...this.state,
                 data: {
                     ...this.state.data,
                     date: {
                         ...this.state.data.date,
-                        endDate: endDate
-                    }
-                }
+                        endDate: endDate,
+                    },
+                },
             });
         }
 
     }
-
-
 
     render(){
         const { data } = this.state;
