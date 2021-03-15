@@ -8,8 +8,8 @@ export default function Text(props) {
 
     const [hasError, setHasError] = useState(null);
     let pattern = "";
-    if(type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(type === "tel") pattern = "[0-9]*";
+    if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (type === "tel") pattern = "[0-9]*";
 
     const onChange = (event) => {
         const target =  {

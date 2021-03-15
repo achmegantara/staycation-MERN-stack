@@ -1,7 +1,7 @@
 @import "../../../assets/scss/colorVariables";
 
 $stepperMainColor: $gray-200;
-$size: 50px;
+$size: 60px;
 
 ol.stepper {
     display: flex;
@@ -41,8 +41,8 @@ ol.stepper {
             &:before {
                 content: "";
                 z-index: -2;
-                top: 50px;
-                left: 100;
+                top: 50%;
+                left: 100%;
                 position: absolute;
                 width: $size + 10;
                 height: 1px;
@@ -59,8 +59,7 @@ ol.stepper {
             }
             background-color: $stepperMainColor;
             color: $gray-500;
-        }
-        // ~ bertujuan untuk memilih tag li setelah .active akan dipilih
+                    // ~ bertujuan untuk memilih tag li setelah .active akan dipilih
         & ~ li {
             color: $gray-500;
             background: $stepperMainColor;
@@ -68,8 +67,6 @@ ol.stepper {
                 content: none;
             }
         }
-        
-
+        }
     }
-
 }

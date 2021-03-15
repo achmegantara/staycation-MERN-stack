@@ -26,7 +26,7 @@ export default function File(props){
                 onChange={props.onChange}
                 />
                 <input 
-                onClick={() => refInputFile.click()}
+                onClick={() => refInputFile.current.click()}
                 defaultValue={value}
                 placeholder={placeholder}
                 className={["form-control", inputClassName].join(" ")}

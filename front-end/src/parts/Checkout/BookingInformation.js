@@ -15,14 +15,14 @@ export default function BookingInformation(props) {
                             <img
                             className="img-cover"
                             src={ItemDetails.imageUrls[0].url}
-                            alt={ItemDetails.name}
+                            alt={ItemDetails.title}
                             >
                             </img>
                         </figure>
                         <div className="row align-items-center">
                             <div className="col">
                                 <div className="meta-wrapper">
-                                    <h5>{ItemDetails.name}</h5>
+                                    <h5>{ItemDetails.title}</h5>
                                     <span className="text-gray-500">
                                         {ItemDetails.city}, {ItemDetails.country}
                                     </span>
@@ -40,7 +40,7 @@ export default function BookingInformation(props) {
                     </div>
                 </Fade>
                 </div>
-                <div className="col-5" style={{paddingLeft: 80}}>
+                <div className="col-5 py-5" style={{paddingLeft: 80}}>
                     <Fade delay={600}>
                         <label htmlFor="firstName">First Name</label>
                         <InputText
@@ -60,6 +60,7 @@ export default function BookingInformation(props) {
                         <InputText
                         id="email"
                         name="email"
+                        type="email"
                         value={data.email}
                         onChange={props.onChange}
                         />
