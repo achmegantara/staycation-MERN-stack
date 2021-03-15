@@ -50,6 +50,26 @@ ol.stepper {
             }
         }
 
+        &.active {
+            &:after {
+                z-index: -1;
+                background: $white;
+                border:1px solid $stepperMainColor;
+                transform: scale(1.2);
+            }
+            background-color: $stepperMainColor;
+            color: $gray-500;
+        }
+        // ~ bertujuan untuk memilih tag li setelah .active akan dipilih
+        & ~ li {
+            color: $gray-500;
+            background: $stepperMainColor;
+            &:after {
+                content: none;
+            }
+        }
+        
+
     }
 
 }
