@@ -1,0 +1,76 @@
+database fields
+
+Home page
+1. most picked
+    - harga
+    - nama
+    - city
+    - country
+
+2. categories (1,2,3)
+    - images
+    - names
+    - popular choice
+
+Schema ->
+#most picked, house with backyard, dll
+category : {
+    name: string
+}
+
+image : {
+    imageUrl: string
+}
+
+features: {
+    name: string,
+    qty: number,
+    imageUrl : string
+}
+
+item : {
+    title: string,
+    price: number,
+    country: string,
+    city: string,
+    isPopular: boolean,
+    description: string,
+    imageId: [{id: ObjectId}],
+    featureId : [{id : ObjectId}],
+    activityId : [{id: ObjectId}]
+}
+
+activity : {
+    name: string,
+    type: string,
+    imageUrl: string,
+    isPopular: boolean
+}
+
+booking : {
+    bookingStartDate: date,
+    bookingEndData: date,
+    itemId: [{
+            id: ObjectId,
+            price: number,
+            night: number
+        }],
+    memberID : [{id : ObjectId}],
+    bankID : [{id : ObjectId}],
+    proofPayment : string,
+    bankFrom : string,
+    accountHolder : string,
+}
+
+member : {
+    firstName : string,
+    LastName : string,
+    email : string,
+    phoneNumber : string
+}
+
+bank : {
+    nameBank : string,
+    nomorRekening: string,
+    name : string
+}
