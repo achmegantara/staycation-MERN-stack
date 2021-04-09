@@ -93,11 +93,12 @@ module.exports = {
         try {
             const {name, nameBank, nomorRekening} = req.body;
             console.log(req.file);
-            // await Bank.create({
-            // name,
-            // nameBank,
-            // nomorRekening
-            // });
+            await Bank.create({
+            name,
+            nameBank,
+            nomorRekening,
+            imageUrl : `images/${req.file.filename}`
+            });
             req.flash('alertMessage', 'Success Add Bank');
             req.flash('alertStatus', 'success');
             res.redirect('/admin/bank');
