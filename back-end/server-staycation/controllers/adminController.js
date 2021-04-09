@@ -36,7 +36,7 @@ module.exports = {
             req.flash('alertStatus', 'success');
             res.redirect('/admin/category');
         } catch (error) {
-            req.flash('alertMessage', '${error.message}');
+            req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/category');
         }
@@ -52,7 +52,7 @@ module.exports = {
             req.flash('alertStatus', 'success');
             res.redirect('/admin/category');
         } catch (error) {
-            req.flash('alertMessage', '${error.message}');
+            req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/category');
         }
@@ -67,7 +67,7 @@ module.exports = {
         req.flash('alertStatus', 'success');
         res.redirect('/admin/category');
     } catch (error) {
-        req.flash('alertMessage', '${error.message}');
+        req.flash('alertMessage', `${error.message}`);
         req.flash('alertStatus', 'danger');
         res.redirect('/admin/category');
     }
@@ -83,7 +83,7 @@ module.exports = {
                 alert
             });
         } catch (error) {
-            req.flash('alertMessage', '${error.message}');
+            req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/bank');
         }
@@ -92,16 +92,17 @@ module.exports = {
     addBank: async (req,res) => {
         try {
             const {name, nameBank, nomorRekening} = req.body;
-            await Bank.create({
-            name,
-            nameBank,
-            nomorRekening
-            });
+            console.log(req.file);
+            // await Bank.create({
+            // name,
+            // nameBank,
+            // nomorRekening
+            // });
             req.flash('alertMessage', 'Success Add Bank');
             req.flash('alertStatus', 'success');
             res.redirect('/admin/bank');
         } catch (error) {
-            req.flash('alertMessage', '${error.message}');
+            req.flash('alertMessage', `${error.message}`);
             req.flash('alertStatus', 'danger');
             res.redirect('/admin/bank');
         }

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 const bankSchema = new mongoose.Schema({
     nameBank: {
@@ -7,7 +7,7 @@ const bankSchema = new mongoose.Schema({
         required: true
     },
     nomorRekening: {
-        type: Number,
+        type: String,
         required: true
     },
     name: {
