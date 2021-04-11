@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 var mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema;
 
 const FeatureSchema = new mongoose.Schema({
     name: {
@@ -13,6 +14,10 @@ const FeatureSchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         required: true
+    },
+    itemId:{
+        type: ObjectId,
+        ref: Item
     }
 })
 
