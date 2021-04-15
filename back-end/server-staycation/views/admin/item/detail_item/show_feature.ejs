@@ -22,7 +22,7 @@
           </div>
           <div class="col md-7">
           <div class="table-responsive">
-          <table class="table table-bordered" id="dataTableActivity" width="100%" cellspacing="0">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>No</th>
@@ -33,7 +33,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% for(let i=0; i < feature.length; i++) { %>
+                <% for(let i=0; i < feature.length; i++){ %>
                   <tr>
                   <td><%= i + 1 %></td>
                   <td><%= feature[i].name %></td>
@@ -43,9 +43,12 @@
                   </td>
                   <td>
                     <form action="/admin/feature/<%= feature[i].id %>?_method=DELETE" method="POST">
-                    <a href="javascript:void()" type="button" class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= feature[i].id %>" data-name="<%= feature[i].name %>" data-namebank="<%= feature[i].nameBank %>"><i class="fas fa-edit"></i></a>
-                    <button href="" type="submit" class="btn btn-danger btn-circle btn-sm" ><i class="fas fa-trash"></i></button>
-                  </form>
+                      <a href="javascript:void();" type="button" class="btn btn-warning btn-circle btn-sm button-update"
+                        data-id="<%= feature[i].id %>" data-name="<%= feature[i].name %>"
+                        data-qty="<%= feature[i].qty %>"><i class=" fas fa-edit"></i></a>
+                      <button type="submit" class="btn btn-danger btn-circle btn-sm"><i
+                          class="fas fa-trash"></i></button>
+                    </form>
                   </td>
                   </tr>
                 <% } %>
