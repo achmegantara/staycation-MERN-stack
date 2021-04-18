@@ -6,6 +6,8 @@ const Image = require('../models/Image');
 const Feature = require('../models/Feature');
 const Activity = require('../models/Activity');
 const Users = require('../models/Users');
+const Booking = require('../models/Booking');
+const Member = require('../models/Member');
 const fs = require('fs-extra');
 const path = require('path');
 const bcrypt = require('bcryptjs');
@@ -69,7 +71,7 @@ module.exports = {
                 user: req.session.user
             });
         } catch (error) {
-            
+            //
         }
 
 
@@ -573,11 +575,20 @@ module.exports = {
     },
 
 
+    viewBooking: async (req,res) => {
+        try {
+            const booking = await Booking.find()
+            .populate('memberId')
+            .populate('bankId');
+            console.log(booking);
+            res.render('admin/booking/view_booking', {
+                title: "Staycation | Booking",
+                user: req.session.user,
+                booking
+            });
+        } catch (error) {
+            //
+        }
 
-    viewBooking: (req,res) => {
-        res.render('admin/booking/view_booking', {
-            title: "Staycation | Booking",
-            user: req.session.user
-        });
     }
 }
