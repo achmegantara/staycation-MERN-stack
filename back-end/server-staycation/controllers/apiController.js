@@ -23,12 +23,26 @@ module.exports = {
                     path : 'itemId',
                     select: '_id title country city isPopular imageId',
                     perDocumentLimit: 4,
+                    option: {sort : {sumBooking: -1}},
                     populate: { 
                         path : 'imageId', 
                         select: '_id imageUrl',
                         perDocumentLimit: 1
                     }
                 });
+
+            for(let i = 0; i < category.length; i++){
+                for(let x = 0; x < category[i].itemId.length; x++){
+                    const item = await Item.findOne({_id : category[i].itemId[x]._id});
+                    item.isPopular = false;
+                    await item.save();
+
+                    if(category[i].itemId[0] === category[i].itemId[x]){
+                        item.isPopular = true;
+                        await item.save();
+                    }
+                }
+            }
 
             res.status(200).json({
                 hero: { 
@@ -40,7 +54,8 @@ module.exports = {
                 category
             });
         } catch (error) {
-            
+            console.log(error);
+            res.status(500).json({message: "internal server error"});
         }
     }
 }
