@@ -1,6 +1,15 @@
+const Item = require('../models/Item');
+
 module.exports = {
-    landingPage: (req,res) => {
-        const message = 'Hello Json';
-        res.status(200).json({message});
+    landingPage: async (req,res) => {
+        try {
+            const mostPicked = await Item.find()
+            .select('_id title country city price unit imageId')
+            .limit(5)
+            .populate({path : 'imageId', select: '_id imageUrl'});
+            res.status(200).json({ mostPicked });
+        } catch (error) {
+            
+        }
     }
 }
